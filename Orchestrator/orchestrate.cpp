@@ -19,9 +19,9 @@ int _Piece::operator-(_Piece& other){ // cost of transition = distance between n
         return dMap[p] = v.size();
     }
 }
-_Piece::_Piece(std::string name, std::initializer_list<std::string> perfs):name{name},perfs{perfs}{
+_Piece::_Piece(std::string name, std::string composer, std::initializer_list<std::string> perfs):name{name},perfs{perfs}{
 };
-_Piece::_Piece(std::string name, std::list<std::string> perfs):name{name},perfs{perfs.begin(),perfs.end()}{
+_Piece::_Piece(std::string name, std::string composer, std::list<std::string> perfs):name{name},perfs{perfs.begin(),perfs.end()}{
 };
 
 _Piece::_Piece(){};
@@ -134,8 +134,8 @@ void HeldKarp(QueueItem& item){
 }
 
 
-void Orchestrator::push(std::string& pName, std::list<std::string>& perfs){
-    pcs.push_back(Piece(new _Piece(pName,perfs)));
+void Orchestrator::push(std::string& pName, std::string& cName, std::list<std::string>& perfs){
+    pcs.push_back(Piece(new _Piece(pName,cName,perfs)));
     //not yet dealing with composer names
 }
 

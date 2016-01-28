@@ -21,11 +21,12 @@ using Piece = std::shared_ptr<_Piece>;
 class _Piece{
 public:
     std::string name;
+    std::string composer;
     std::set<std::string> perfs;
 public:
     int operator-(_Piece& other);
-    _Piece(std::string name, std::initializer_list<std::string> perfs);
-    _Piece(std::string name, std::list<std::string> perfs);
+    _Piece(std::string name, std::string composer, std::initializer_list<std::string> perfs);
+    _Piece(std::string name, std::string composer, std::list<std::string> perfs);
 
     _Piece();
     bool operator==(const _Piece& other) const;
@@ -49,7 +50,7 @@ class Orchestrator{
 private:
     std::list<Piece> pcs;
 public:
-    void push(std::string& pName, std::list<std::string>& perfs);
+    void push(std::string& pName, std::string& cName, std::list<std::string>& perfs);
     std::list<std::string> orchestrate();
     //Orchestrator();
 };

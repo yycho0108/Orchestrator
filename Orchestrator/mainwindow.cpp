@@ -82,9 +82,10 @@ void MainWindow::on_calcBtn_clicked()
     ui->resCombo->clear();
     Orchestrator o;
     for(int i=0;i<ui->pcTable->rowCount();++i){
-        auto comp = ui->pcTable->item(i,0)->text().toStdString();
+        auto title = ui->pcTable->item(i,0)->text().toStdString();
+        auto comp = ui->pcTable->item(i,1)->text().toStdString();
         auto l = split(ui->pcTable->item(i,2)->text().toStdString());
-        o.push(comp, l);
+        o.push(title, comp, l);
     }
     auto pcs = o.orchestrate();
     for(auto p : pcs){
@@ -122,5 +123,4 @@ void MainWindow::on_clrPcBtn_clicked()
     ui->titleEdit->clear();
     ui->perfEdit->clear();
     ui->perfList->clear();
-
 }

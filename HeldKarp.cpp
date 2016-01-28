@@ -131,7 +131,7 @@ void HeldKarp(QueueItem& item){
 	auto& route = item.route;
 	auto& cost = item.cost;
 
-	if(!confirm(route, cost))
+	if(!confirm(route, cost) || minCost < cost)
 		return;
 	if(pcs.size() == 0 && minCost > cost){
 		minCost = cost;
